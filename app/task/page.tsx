@@ -1,6 +1,6 @@
 import React from "react";
 
-export const page = () => {
+export const AddTaskPage = () => {
   return (
     <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
       <div className="pl-4">
@@ -23,4 +23,4 @@ export const page = () => {
   );
 };
 
-export default page;
+export default AddTaskPage;
