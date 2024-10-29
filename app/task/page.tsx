@@ -1,6 +1,6 @@
 import React from "react";
 
-const AddTaskPage = () => {
+export default function AddTaskPage() {
   return (
     <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
       <div className="pl-4">
@@ -21,6 +21,4 @@ const AddTaskPage = () => {
       </div>
     </div>
   );
-};
-
-export default AddTaskPage;
+}
