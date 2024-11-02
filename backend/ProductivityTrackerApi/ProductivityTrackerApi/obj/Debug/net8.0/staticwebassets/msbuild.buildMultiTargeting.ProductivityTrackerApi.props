@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ProductivityTrackerApi.props" />
+</Project>
