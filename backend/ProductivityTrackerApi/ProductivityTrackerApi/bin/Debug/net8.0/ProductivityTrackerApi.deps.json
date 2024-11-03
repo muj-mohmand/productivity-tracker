@@ -9,6 +9,7 @@
       "ProductivityTrackerApi/1.0.0": {
         "dependencies": {
           "Microsoft.AspNet.WebApi.Cors": "5.3.0",
+          "Microsoft.AspNetCore.Authentication.Google": "8.0.10",
           "Microsoft.AspNetCore.Cors": "2.2.0",
           "Microsoft.EntityFrameworkCore": "8.0.10",
           "Microsoft.EntityFrameworkCore.Design": "8.0.10",
@@ -604,6 +605,14 @@
           "lib/net45/System.Web.Http.Cors.dll": {
             "assemblyVersion": "5.3.0.0",
             "fileVersion": "5.3.61130.707"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Google/8.0.10": {
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "8.0.10.0",
+            "fileVersion": "8.0.1024.46804"
           }
         }
       },
@@ -2174,6 +2183,13 @@
       "sha512": "sha512-TsXWN+j08g8VWvLZCAxo3z7d1tBiDHUoXM/d5ES5+2/PJX42nsJCMtGjBOn+by8A1fQyPlYPStEnA9Fc8na6WQ==",
       "path": "microsoft.aspnet.webapi.cors/5.3.0",
       "hashPath": "microsoft.aspnet.webapi.cors.5.3.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/8.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ponvsoyGJKn19I8lbOE7RKP4et1sT4Mf5OFtBqF/5+CVfC4dgQry/jQud9rF66iFy0kdUHOoIK9LXtBfePQjvg==",
+      "path": "microsoft.aspnetcore.authentication.google/8.0.10",
+      "hashPath": "microsoft.aspnetcore.authentication.google.8.0.10.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cors/2.2.0": {
       "type": "package",

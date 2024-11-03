@@ -49,10 +49,7 @@ export default function Modal({ text }: ModalProps) {
       <div className="modal-box">
         <h3 className="font-bold text-lg">{text}</h3>
         <p className="py-4">Press ESC key or click outside to close</p>
-        <button
-          className="btn"
-          onClick={() => document.getElementById("modal_1")?.close()}
-        >
+        <button className="btn" onClick={onClose}>
           Close
         </button>
       </div>

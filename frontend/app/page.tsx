@@ -1,6 +1,22 @@
+"use client";
 import Image from "next/image";
+import GoogleIcon from "@mui/icons-material/Google";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  const apiBaseUrl =
+    process.env.NEXT_PUBLIC_API_URL || "https://localhost:7149";
+
+  const handleGoogleLogin = () => {
+    try {
+      window.location.href = `${apiBaseUrl}/auth/login`;
+    } catch (error) {
+      console.error("Error during Google login:", error);
+      // Handle the error appropriately
+    }
+  };
+
   return (
     <div data-theme="cupcake">
       <div className="container mx-auto m-60">
@@ -35,9 +51,17 @@ export default function Home() {
             </div>
           </div>
           <div className="grid grid-cols-3 gap-4 p-8">
-            <button className="btn btn-primary w-full text-lg py-3">
-              Sign In
-            </button>
+            <div>
+              <button
+                className="btn  w-full text-sm py-3"
+                onClick={handleGoogleLogin}
+              >
+                <span>
+                  <GoogleIcon color="primary" />
+                  <span className="pl-1">Sign In With Google</span>
+                </span>
+              </button>
+            </div>
             <button className="btn btn-secondary w-full text-lg py-3">
               Sign In As Guest
             </button>

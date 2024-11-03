@@ -253,6 +253,7 @@ C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerAp
 C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerApi\ProductivityTrackerApi\bin\Debug\net8.0\System.Net.Http.Formatting.dll
 C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerApi\ProductivityTrackerApi\bin\Debug\net8.0\System.Web.Http.dll
 C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerApi\ProductivityTrackerApi\bin\Debug\net8.0\System.Web.Http.Cors.dll
+C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerApi\ProductivityTrackerApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll
 C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerApi\ProductivityTrackerApi\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerApi\ProductivityTrackerApi\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerApi\ProductivityTrackerApi\bin\Debug\net8.0\Microsoft.Build.dll
@@ -470,6 +471,7 @@ C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerAp
 C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerApi\ProductivityTrackerApi\obj\Debug\net8.0\ProductivityTrackerApi.csproj.CoreCompileInputs.cache
 C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerApi\ProductivityTrackerApi\obj\Debug\net8.0\ProductivityTrackerApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerApi\ProductivityTrackerApi\obj\Debug\net8.0\ProductivityTrackerApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerApi\ProductivityTrackerApi\obj\Debug\net8.0\ProductivityTrackerApi.sourcelink.json
 C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerApi\ProductivityTrackerApi\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerApi\ProductivityTrackerApi\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\muj\Desktop\projects\productivity-tracker\backend\ProductivityTrackerApi\ProductivityTrackerApi\obj\Debug\net8.0\staticwebassets\msbuild.ProductivityTrackerApi.Microsoft.AspNetCore.StaticWebAssets.props
