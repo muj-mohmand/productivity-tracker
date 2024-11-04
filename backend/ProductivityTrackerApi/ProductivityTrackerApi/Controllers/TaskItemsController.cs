@@ -50,6 +50,19 @@ namespace ProductivityTrackerApi.Controllers
             return taskItem;
         }
 
+        //GET: api/TaskItems/userId
+        //[HttpGet("{UserId}")]
+        //public async Task<ActionResult<IEnumerable<TaskItem>>> GetTaskItemsForUser(string UserId)
+        //{
+        //    if (UserId == null)
+        //    {
+        //        _logger.LogWarning("UserId is null");
+        //        return NotFound();
+        //    };
+        //    //return await _context.TaskItems.ToListAsync(UserId);
+
+        //}
+
         // PUT: api/TaskItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -94,6 +107,7 @@ namespace ProductivityTrackerApi.Controllers
             _context.TaskItems.Add(taskItem);
             await _context.SaveChangesAsync();
             _logger.LogInformation("Task item created with id {Id}", taskItem.Id); // Logging line added
+            _logger.LogInformation("Task item created with UserId {UserId}", taskItem.UserId);
             _logger.LogInformation("taskItem info: {taskItem}", taskItem);
 
             return CreatedAtAction(nameof(GetTaskItem), new { id = taskItem.Id }, taskItem);

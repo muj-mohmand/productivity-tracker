@@ -1,12 +1,10 @@
 "use client";
 import Image from "next/image";
 import GoogleIcon from "@mui/icons-material/Google";
-import { useRouter } from "next/navigation";
+import { Provider } from "react-redux";
 
 export default function Home() {
-  const router = useRouter();
-  const apiBaseUrl =
-    process.env.NEXT_PUBLIC_API_URL || "https://localhost:7149";
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5169";
 
   const handleGoogleLogin = () => {
     try {

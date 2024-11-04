@@ -109,25 +109,39 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ProductivityTrackerApi.Controllers.LoginController",
+    "ContainingType": "AuthController",
     "Method": "Login",
     "RelativePath": "auth/login",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "ProductivityTrackerApi.Controllers.LoginController",
-    "Method": "GoogleResponse",
-    "RelativePath": "auth/sign-google",
+    "ContainingType": "AuthController",
+    "Method": "Logout",
+    "RelativePath": "auth/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuthController",
+    "Method": "GetUserAsync",
+    "RelativePath": "auth/user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealthController",
+    "Method": "Check",
+    "RelativePath": "health",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

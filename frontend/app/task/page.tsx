@@ -12,7 +12,7 @@ export default function AddTaskPage() {
 
     try {
       // Asynchronous POST request
-      const response = await fetch("https://localhost:7149/api/TaskItems", {
+      const response = await fetch("https://localhost:5169/api/TaskItems", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
