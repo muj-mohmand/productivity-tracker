@@ -2,6 +2,7 @@
 import Image from "next/image";
 import GoogleIcon from "@mui/icons-material/Google";
 import { Provider } from "react-redux";
+import { NavBar } from "./components/NavBar";
 
 export default function Home() {
   const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5169";

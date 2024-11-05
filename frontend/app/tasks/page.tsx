@@ -2,7 +2,10 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector, useAppStore } from "../../lib/hooks";
-import { setStateUserInfo } from "../../lib/features/user/userSlice";
+import {
+  isLoggedIn,
+  setStateUserInfo,
+} from "../../lib/features/user/userSlice";
 
 interface UserInfo {
   name: string;
@@ -15,7 +18,7 @@ export default function TasksPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
-  const store = useAppStore();
+  const dispatch = useAppDispatch();
 
   // Use HTTP for local development to avoid certificate issues
   const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5169";
@@ -42,9 +45,11 @@ export default function TasksPage() {
 
         const data = await response.json();
         console.log("User data received:", data);
-
         //set user data in store
-        store.dispatch(setStateUserInfo(data));
+        if (response.ok) {
+          dispatch(setStateUserInfo(data));
+          dispatch(isLoggedIn(true));
+        }
 
         setUserInfo(data);
         setError(null);
@@ -60,7 +65,7 @@ export default function TasksPage() {
     fetchUserData();
   }, [router, apiBaseUrl]);
 
-  const userStateInfo = useAppSelector(state => state.userInfo);
+  const userStateInfo = useAppSelector(state => state.user.userInfo);
   console.log(`The user state info is : `, userStateInfo);
 
   if (loading) {

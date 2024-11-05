@@ -1,11 +1,14 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Modal from "../components/Modal";
+import { useAppSelector } from "@/lib/hooks";
 
 export default function AddTaskPage() {
   const [taskData, setTaskData] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [countOfEntries, setCountOfEntries] = useState(0);
+  const currentUserId = useAppSelector(state => state.user.userInfo);
+  console.log(currentUserId);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,7 +21,7 @@ export default function AddTaskPage() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          UserId: "guest",
+          UserId: currentUserId,
           IsComplete: false,
           Description: taskData,
           CreatedAt: new Date().toISOString(),
