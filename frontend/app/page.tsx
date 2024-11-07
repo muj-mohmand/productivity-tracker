@@ -1,11 +1,20 @@
 "use client";
 import Image from "next/image";
 import GoogleIcon from "@mui/icons-material/Google";
-import { Provider } from "react-redux";
-import { NavBar } from "./components/NavBar";
+import { useRouter } from "next/navigation";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import {
+  clearUserInfo,
+  isLoggedIn,
+  setIsGuest,
+  setStateUserInfo,
+} from "@/lib/features/user/userSlice";
 
 export default function Home() {
   const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5169";
+  const router = useRouter();
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(state => state.user);
 
   const handleGoogleLogin = () => {
     try {
@@ -13,6 +22,37 @@ export default function Home() {
     } catch (error) {
       console.error("Error during Google login:", error);
       // Handle the error appropriately
+    }
+  };
+
+  const handleSignInAsGuest = () => {
+    console.log("handleSignInAsGuest called");
+    try {
+      if (user.loggedIn) {
+        //logout current user
+        const logoutResponse = async () => {
+          const response = await fetch(`${apiBaseUrl}/auth/logout`, {
+            method: "POST",
+          });
+          const data = await response.json();
+
+          console.log(`logoutoutResponse`, data);
+          if (response.ok) {
+            console.log("Logged out succesfully.");
+          }
+        };
+        logoutResponse();
+      }
+      dispatch(clearUserInfo()); // clears info and logs out user
+      dispatch(setStateUserInfo({ name: "guest", email: "guest" }));
+      dispatch(setIsGuest(true));
+      console.log("sign in a guest");
+      console.log("user", user);
+
+      router.push("/tasks");
+    } catch (error) {
+      console.log("Logout failed.", error);
+      router.push("/");
     }
   };
 
@@ -61,7 +101,10 @@ export default function Home() {
                 </span>
               </button>
             </div>
-            <button className="btn btn-secondary w-full text-lg py-3">
+            <button
+              className="btn btn-secondary w-full text-lg py-3"
+              onClick={handleSignInAsGuest}
+            >
               Sign In As Guest
             </button>
             <button className="btn btn-neutral w-full text-lg py-3">

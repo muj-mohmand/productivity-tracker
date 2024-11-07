@@ -7,7 +7,7 @@ export default function AddTaskPage() {
   const [taskData, setTaskData] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [countOfEntries, setCountOfEntries] = useState(0);
-  const currentUserId = useAppSelector(state => state.user.userInfo);
+  const currentUserId = useAppSelector(state => state.user.userInfo.email);
   console.log(currentUserId);
 
   const handleSubmit = async (e: React.FormEvent) => {

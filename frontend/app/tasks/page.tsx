@@ -6,11 +6,12 @@ import {
   isLoggedIn,
   setStateUserInfo,
 } from "../../lib/features/user/userSlice";
+import { Result } from "postcss";
+import Email from "next-auth/providers/email";
 
 interface UserInfo {
   name: string;
   email: string;
-  picture: string;
 }
 
 export default function TasksPage() {
@@ -19,54 +20,51 @@ export default function TasksPage() {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const dispatch = useAppDispatch();
+  const user = useAppSelector(state => state.user);
+  console.log(`The user state info is : `, user);
 
   // Use HTTP for local development to avoid certificate issues
   const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5169";
 
-  useEffect(() => {
-    async function fetchUserData() {
-      try {
-        console.log("Attempting to fetch from:", `${apiBaseUrl}/auth/user`);
+  async function fetchUserData() {
+    console.log("fetchUserData called");
+    try {
+      const response = await fetch(`${apiBaseUrl}/auth/user`, {
+        method: "GET",
+        credentials: "include",
+        mode: "cors",
+      });
 
-        const response = await fetch(`${apiBaseUrl}/auth/user`, {
-          method: "GET",
-          credentials: "include",
-          mode: "cors",
-        });
+      const data = await response.json();
 
-        console.log("Auth response status:", response.status);
+      console.log("Auth response status:", data);
 
-        if (!response.ok) {
-          if (response.status === 401) {
-            console.log("User not authenticated, redirecting to login...");
-          }
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log("User data received:", data);
-        //set user data in store
-        if (response.ok) {
-          dispatch(setStateUserInfo(data));
-          dispatch(isLoggedIn(true));
-        }
-
+      // //set user data in store
+      if (response.ok) {
+        dispatch(setStateUserInfo(data));
         setUserInfo(data);
-        setError(null);
-      } catch (error) {
-        console.error("Detailed error:", error);
-        setError("Connection failed. Please ensure the API server is running.");
-        // Don't redirect immediately on error to show the error message
-      } finally {
-        setLoading(false);
       }
+
+      setError(null);
+    } catch (error) {
+      console.error("Detailed error:", error);
+      setError("Connection failed. Please ensure the API server is running.");
+      // Don't redirect immediately on error to show the error message
+    } finally {
+      setLoading(false);
     }
-
-    fetchUserData();
-  }, [router, apiBaseUrl]);
-
-  const userStateInfo = useAppSelector(state => state.user.userInfo);
-  console.log(`The user state info is : `, userStateInfo);
+  }
+  useEffect(() => {
+    console.log("start use effect");
+    console.log(user);
+    if (!user.userInfo || !user.isGuest) {
+      console.log("fetching user info");
+      fetchUserData();
+    } else {
+      setUserInfo(user.userInfo);
+      setLoading(false);
+    }
+  }, []);
 
   if (loading) {
     return (
