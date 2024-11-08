@@ -6,14 +6,19 @@ import {
   isLoggedIn,
   setStateUserInfo,
 } from "../../lib/features/user/userSlice";
-import { Result } from "postcss";
-import Email from "next-auth/providers/email";
 
 interface UserInfo {
-  name: string;
-  email: string;
+  name: string | null;
+  email: string | null;
 }
 
+interface Task {
+  id: number | null;
+  userId: string;
+  isComplete: boolean;
+  description: string;
+  createdAt: string;
+}
 export default function TasksPage() {
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const [loading, setLoading] = useState(true);
@@ -21,6 +26,7 @@ export default function TasksPage() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const user = useAppSelector(state => state.user);
+  const [taskItems, setTaskItems] = useState<Task[]>([]);
   console.log(`The user state info is : `, user);
 
   // Use HTTP for local development to avoid certificate issues
@@ -43,6 +49,9 @@ export default function TasksPage() {
       if (response.ok) {
         dispatch(setStateUserInfo(data));
         setUserInfo(data);
+        console.log("response data", data);
+        console.log("response userInfo", userInfo);
+        getTasks(data);
       }
 
       setError(null);
@@ -54,6 +63,20 @@ export default function TasksPage() {
       setLoading(false);
     }
   }
+  const getTasks = async (user: UserInfo | null) => {
+    console.log("Get tasks", user);
+    if (user?.email) {
+      const params = new URLSearchParams({ email: user.email });
+      const response = await fetch(`${apiBaseUrl}/api/TaskItems?${params}`, {
+        method: "GET",
+        credentials: "include",
+        mode: "cors",
+      });
+      const data = await response.json();
+      console.log(data);
+      setTaskItems(data);
+    }
+  };
   useEffect(() => {
     console.log("start use effect");
     console.log(user);
@@ -65,6 +88,42 @@ export default function TasksPage() {
       setLoading(false);
     }
   }, []);
+
+  const displayTasks = () => {
+    if (!taskItems.length) {
+      return (
+        <tbody>
+          <tr>
+            <th className="w-0 px-10"></th>
+            <td>
+              No tasks to display
+              <br />
+            </td>
+          </tr>
+        </tbody>
+      );
+    }
+    return (
+      <tbody>
+        {taskItems.map((task, index) => (
+          <tr key={index}>
+            <th className="w-0 px-10">
+              <label>
+                <input type="checkbox" className="checkbox" />
+              </label>
+            </th>
+            <td>
+              {task.description}
+              <br />
+              <span className="badge badge-ghost badge-sm">
+                {task.isComplete ? "Completed" : "In Progress"}
+              </span>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    );
+  };
 
   if (loading) {
     return (
@@ -119,24 +178,8 @@ export default function TasksPage() {
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody>
-              {/* row 1 */}
-              <tr>
-                <th className="w-0 px-10">
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
 
-                <td>
-                  Make task page
-                  <br />
-                  <span className="badge badge-ghost badge-sm">
-                    in progress
-                  </span>
-                </td>
-              </tr>
-            </tbody>
+            {displayTasks()}
           </table>
         </div>
       </div>

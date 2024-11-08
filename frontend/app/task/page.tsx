@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Modal from "../components/Modal";
 import { useAppSelector } from "@/lib/hooks";
+import { apiBaseUrl } from "next-auth/client/_utils";
 
 export default function AddTaskPage() {
   const [taskData, setTaskData] = useState("");
@@ -9,13 +10,14 @@ export default function AddTaskPage() {
   const [countOfEntries, setCountOfEntries] = useState(0);
   const currentUserId = useAppSelector(state => state.user.userInfo.email);
   console.log(currentUserId);
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5169";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
       // Asynchronous POST request
-      const response = await fetch("https://localhost:5169/api/TaskItems", {
+      const response = await fetch(`${apiBaseUrl}/api/TaskItems`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

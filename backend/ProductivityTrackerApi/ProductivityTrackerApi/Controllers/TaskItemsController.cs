@@ -24,16 +24,16 @@ namespace ProductivityTrackerApi.Controllers
             _logger = logger;
         }
 
-        // GET: api/TaskItems
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<TaskItem>>> GetTaskItems()
-        {
-            _logger.LogInformation("Getting all task items."); // Logging line added
-            return await _context.TaskItems.ToListAsync();
-        }
+        //// GET: api/TaskItems
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<TaskItem>>> GetTaskItems()
+        //{
+        //    _logger.LogInformation("Getting all task items."); // Logging line added
+        //    return await _context.TaskItems.ToListAsync();
+        //}
 
         // GET: api/TaskItems/5
-        [HttpGet("{id}")]
+        [HttpGet("{id:long}")]
         public async Task<ActionResult<TaskItem>> GetTaskItem(long id)
         {
             _logger.LogInformation("Getting task item with id {Id}", id); // Logging line added
@@ -51,17 +51,24 @@ namespace ProductivityTrackerApi.Controllers
         }
 
         //GET: api/TaskItems/userId
-        //[HttpGet("{UserId}")]
-        //public async Task<ActionResult<IEnumerable<TaskItem>>> GetTaskItemsForUser(string UserId)
-        //{
-        //    if (UserId == null)
-        //    {
-        //        _logger.LogWarning("UserId is null");
-        //        return NotFound();
-        //    };
-        //    //return await _context.TaskItems.ToListAsync(UserId);
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<TaskItem>>> GetTaskItemsForUser([FromQuery]string email)
+        {
+            if (string.IsNullOrEmpty(email)) {
+                _logger.LogInformation("Getting all task items."); // Logging line added
+                return await _context.TaskItems.ToListAsync();
+            }
 
-        //}
+            var userTaskItems = await _context.TaskItems
+           .Where(task => task.UserId == email)
+           .ToListAsync();
+
+            if (userTaskItems == null)
+                return NotFound();
+
+            return Ok(userTaskItems);
+
+        }
 
         // PUT: api/TaskItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

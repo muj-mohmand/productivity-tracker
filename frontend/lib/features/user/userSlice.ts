@@ -5,7 +5,7 @@ import { userInfo } from "os";
 const userSlice = createSlice({
   name: "user",
   initialState: {
-    userInfo: null,
+    userInfo: { name: null, email: null },
     loggedIn: false,
     isGuest: false,
   },
@@ -18,7 +18,7 @@ const userSlice = createSlice({
     },
     clearUserInfo: state => {
       console.log("Clearing user info");
-      state.userInfo = null;
+      state.userInfo = { name: null, email: null };
       state.loggedIn = false;
     },
     isLoggedIn: (state, action) => {

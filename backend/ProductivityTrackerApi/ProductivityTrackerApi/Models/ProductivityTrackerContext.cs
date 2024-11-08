@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProductivityTrackerApi.Models;
 
 namespace ProductivityTrackerApi.Models
 {
@@ -10,5 +11,6 @@ namespace ProductivityTrackerApi.Models
         }
 
         public DbSet<TaskItem> TaskItems { get; set; } = null!;
+        public DbSet<ProductivityTrackerApi.Models.User> User { get; set; } = default!;
     }
 }
