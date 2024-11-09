@@ -6,13 +6,15 @@ import {
   isLoggedIn,
   setStateUserInfo,
 } from "../../lib/features/user/userSlice";
+import EditPage from "../task/edit_task/page";
+import { setStateTask } from "@/lib/features/task/taskSlice";
 
 interface UserInfo {
   name: string | null;
   email: string | null;
 }
 
-interface Task {
+export interface Task {
   id: number | null;
   userId: string;
   isComplete: boolean;
@@ -103,10 +105,32 @@ export default function TasksPage() {
         </tbody>
       );
     }
+
+    async function handleDeleteTask(id: number | null) {
+      try {
+        if (id) {
+          const response = await fetch(`${apiBaseUrl}/api/TaskItems/${id}`, {
+            method: "DELETE",
+          });
+          if (response.ok) {
+            const updatedTasksList = taskItems.filter(task => task.id != id);
+            setTaskItems(updatedTasksList);
+          }
+        }
+      } catch (error) {
+        console.log("Error occured, task not deleted: ", error);
+      }
+    }
+
+    function handleEditTask(task: Task) {
+      dispatch(setStateTask(task));
+      router.push("/task/edit_task");
+    }
+
     return (
       <tbody>
         {taskItems.map((task, index) => (
-          <tr key={index}>
+          <tr key={task.id}>
             <th className="w-0 px-10">
               <label>
                 <input type="checkbox" className="checkbox" />
@@ -118,6 +142,17 @@ export default function TasksPage() {
               <span className="badge badge-ghost badge-sm">
                 {task.isComplete ? "Completed" : "In Progress"}
               </span>
+            </td>
+            <td>
+              <button className="btn m-2" onClick={() => handleEditTask(task)}>
+                Edit
+              </button>
+              <button
+                className="btn btn-error"
+                onClick={() => handleDeleteTask(task.id)}
+              >
+                Delete
+              </button>
             </td>
           </tr>
         ))}

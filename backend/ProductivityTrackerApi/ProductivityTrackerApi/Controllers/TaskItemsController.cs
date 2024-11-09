@@ -73,15 +73,15 @@ namespace ProductivityTrackerApi.Controllers
         // PUT: api/TaskItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTaskItem(long id, TaskItem taskItem)
+        public async Task<IActionResult> PutTaskItem(long id, string taskItemDescription)
         {
-            if (id != taskItem.Id)
-            {
-                _logger.LogWarning("Task item ID mismatch: {Id} != {TaskItemId}", id, taskItem.Id); // Logging line added
-                return BadRequest();
-            }
-
-            _context.Entry(taskItem).State = EntityState.Modified;
+            //if (id != taskItem.Id)
+            //{
+            //    _logger.LogWarning("Task item ID mismatch: {Id} != {TaskItemId}", id, taskItem.Id); // Logging line added
+            //    return BadRequest();
+            //}
+            _context.TaskItems.Where(item => item.Id == id).ExecuteUpdateAsync(t => t.SetProperty(task => task.Description, taskItemDescription));
+            //_context.Entry(taskItem).State = EntityState.Modified;
 
             try
             {

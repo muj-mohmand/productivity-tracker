@@ -1,11 +1,13 @@
 "use client";
 import { configureStore } from "@reduxjs/toolkit";
 import useReducer from "../lib/features/user/userSlice";
+import taskReducer from "../lib/features/task/taskSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       user: useReducer,
+      task: taskReducer,
     },
   });
 };
