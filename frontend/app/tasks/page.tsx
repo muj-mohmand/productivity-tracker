@@ -28,7 +28,7 @@ export default function TasksPage() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const user = useAppSelector(state => state.user);
-  const [taskItems, setTaskItems] = useState<Task[]>([]);
+  const [taskItems, setTaskItems] = useState<any[]>([]);
   console.log(`The user state info is : `, user);
 
   // Use HTTP for local development to avoid certificate issues
@@ -87,6 +87,15 @@ export default function TasksPage() {
       fetchUserData();
     } else {
       setUserInfo(user.userInfo);
+      if (typeof window !== "undefined" && localStorage) {
+        const guestTaskList = localStorage.getItem("guestTaskList");
+        console.log("GuestTaskList? ", guestTaskList);
+
+        if (guestTaskList) {
+          console.log("JSON parse", JSON.parse(guestTaskList));
+          setTaskItems(JSON.parse(guestTaskList));
+        }
+      }
       setLoading(false);
     }
   }, []);
@@ -127,6 +136,25 @@ export default function TasksPage() {
       router.push("/task/edit_task");
     }
 
+    const handleCompleted = async (task: Task) => {
+      if (user.isGuest) {
+        //guest logic
+      } else {
+        task.isComplete = true;
+        const response = await fetch(
+          `${apiBaseUrl}/api/TaskItems/mark-completed/${task.id}?isComplete=true`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-type": "application/json",
+            },
+          }
+        );
+
+        if (response.ok) {
+        }
+      }
+    };
     return (
       <tbody>
         {taskItems.map((task, index) => (
@@ -139,7 +167,13 @@ export default function TasksPage() {
             <td>
               {task.description}
               <br />
-              <span className="badge badge-ghost badge-sm">
+              <span
+                className={
+                  task.isComplete
+                    ? "badge badge-accent badge-sm"
+                    : "badge badge-ghost badge-sm"
+                }
+              >
                 {task.isComplete ? "Completed" : "In Progress"}
               </span>
             </td>
@@ -152,6 +186,12 @@ export default function TasksPage() {
                 onClick={() => handleDeleteTask(task.id)}
               >
                 Delete
+              </button>
+              <button
+                onClick={() => handleCompleted(task)}
+                className="btn btn-success"
+              >
+                Completed
               </button>
             </td>
           </tr>

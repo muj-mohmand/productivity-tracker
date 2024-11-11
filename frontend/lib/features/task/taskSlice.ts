@@ -2,14 +2,6 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
-interface Task {
-  id: number | null;
-  userId: string | null;
-  isComplete: boolean | null;
-  description: string | null;
-  createdAt: string | null;
-}
-
 const taskSlice = createSlice({
   name: "task",
   initialState: {

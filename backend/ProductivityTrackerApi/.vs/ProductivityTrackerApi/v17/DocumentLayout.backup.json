@@ -7,16 +7,24 @@
       "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\controllers\\taskitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\models\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\models\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\models\\productivitytrackercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\models\\productivitytrackercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\models\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\models\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\controllers\\healthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\controllers\\healthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\models\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,14 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\controllers\\healthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\controllers\\healthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\models\\productivitytrackercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\models\\productivitytrackercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +46,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Models\\UsersController.cs",
               "RelativeDocumentMoniker": "ProductivityTrackerApi\\Models\\UsersController.cs",
@@ -58,7 +58,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Models\\User.cs",
               "RelativeDocumentMoniker": "ProductivityTrackerApi\\Models\\User.cs",
@@ -70,19 +70,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "ProductivityTrackerContext.cs",
               "DocumentMoniker": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Models\\ProductivityTrackerContext.cs",
               "RelativeDocumentMoniker": "ProductivityTrackerApi\\Models\\ProductivityTrackerContext.cs",
               "ToolTip": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Models\\ProductivityTrackerContext.cs",
               "RelativeToolTip": "ProductivityTrackerApi\\Models\\ProductivityTrackerContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T01:34:02.88Z"
+              "WhenOpened": "2024-11-05T01:34:02.88Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "TaskItem.cs",
               "DocumentMoniker": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Models\\TaskItem.cs",
               "RelativeDocumentMoniker": "ProductivityTrackerApi\\Models\\TaskItem.cs",
@@ -90,8 +91,7 @@
               "RelativeToolTip": "ProductivityTrackerApi\\Models\\TaskItem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T07:41:57.374Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T07:41:57.374Z"
             },
             {
               "$type": "Document",
@@ -101,14 +101,14 @@
               "RelativeDocumentMoniker": "ProductivityTrackerApi\\Controllers\\TaskItemsController.cs",
               "ToolTip": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Controllers\\TaskItemsController.cs",
               "RelativeToolTip": "ProductivityTrackerApi\\Controllers\\TaskItemsController.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAwwEsAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAwwEsAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-04T07:41:03.251Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "HealthController.cs",
               "DocumentMoniker": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Controllers\\HealthController.cs",
               "RelativeDocumentMoniker": "ProductivityTrackerApi\\Controllers\\HealthController.cs",
@@ -120,26 +120,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "ProductivityTrackerApi\\Controllers\\LoginController.cs",
               "ToolTip": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Controllers\\LoginController.cs",
               "RelativeToolTip": "ProductivityTrackerApi\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwA4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T00:14:27.391Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T00:14:27.391Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Program.cs",
               "RelativeDocumentMoniker": "ProductivityTrackerApi\\Program.cs",
               "ToolTip": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Program.cs",
               "RelativeToolTip": "ProductivityTrackerApi\\Program.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAADcAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACUAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-03T13:58:19.001Z",
               "EditorCaption": ""

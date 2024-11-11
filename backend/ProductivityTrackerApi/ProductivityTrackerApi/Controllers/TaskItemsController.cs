@@ -73,16 +73,10 @@ namespace ProductivityTrackerApi.Controllers
         // PUT: api/TaskItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTaskItem(long id, string taskItemDescription)
+        public async Task<IActionResult> PutTaskItem(long id, [FromBody] string taskItemDescription)
         {
-            //if (id != taskItem.Id)
-            //{
-            //    _logger.LogWarning("Task item ID mismatch: {Id} != {TaskItemId}", id, taskItem.Id); // Logging line added
-            //    return BadRequest();
-            //}
-            _context.TaskItems.Where(item => item.Id == id).ExecuteUpdateAsync(t => t.SetProperty(task => task.Description, taskItemDescription));
-            //_context.Entry(taskItem).State = EntityState.Modified;
-
+            await _context.TaskItems.Where(item => item.Id == id).ExecuteUpdateAsync(t => t.SetProperty(task => task.Description, taskItemDescription));
+          
             try
             {
                 await _context.SaveChangesAsync();
@@ -106,6 +100,33 @@ namespace ProductivityTrackerApi.Controllers
             return NoContent();
         }
 
+        [HttpPut("mark-completed/{id}")]
+        public async Task<IActionResult> CompletedTaskItem(long id, [FromQuery]string isComplete)
+        {
+            await _context.TaskItems.Where(item => item.Id == id).ExecuteUpdateAsync(t => t.SetProperty(task => task.IsComplete, bool.Parse(isComplete)));
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Task item with id {Id} updated successfully", id); // Logging line added
+
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TaskItemExists(id))
+                {
+                    _logger.LogWarning("Task item with id {Id} not found during update", id); // Logging line added
+                    return NotFound();
+                }
+                else
+                {
+                    _logger.LogError("Concurrency error occurred while updating task item with id {Id}", id); // Logging line added
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
         // POST: api/TaskItems
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]

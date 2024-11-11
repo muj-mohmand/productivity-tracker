@@ -2,11 +2,14 @@
 import { isLoggedIn } from "@/lib/features/user/userSlice";
 import { useAppSelector } from "@/lib/hooks";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 export const NavBar = () => {
   const loggedIn = useAppSelector(state => state.user.loggedIn);
+  const isGuest = useAppSelector(state => state.user.isGuest);
   const [showMenu, setShowMenu] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     loggedIn ? setShowMenu(true) : setShowMenu(false);
@@ -15,7 +18,12 @@ export const NavBar = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">Productivity Tracker</a>
+        <a
+          onClick={() => (loggedIn ? router.push("/tasks") : router.push("/"))}
+          className="btn btn-ghost text-xl"
+        >
+          Productivity Tracker
+        </a>
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
@@ -48,7 +56,14 @@ export const NavBar = () => {
               <li>
                 <Link href="/task">Add Task</Link>
               </li>
-              <li>Logout</li>
+              <li>
+                <Link
+                  onClick={() => localStorage.clear()}
+                  href={!isGuest ? "/auth/logout" : "/"}
+                >
+                  Logout
+                </Link>
+              </li>
             </ul>
           </div>
         )}

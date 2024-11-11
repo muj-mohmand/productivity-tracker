@@ -7,25 +7,42 @@ const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5169";
 
 export default function EditPage() {
   const task = useAppSelector(state => state.task.task);
-  const [taskData, setTaskData] = useState("");
+  const isUserGuest = useAppSelector(state => state.user.isGuest);
+  const [taskData, setTaskData] = useState(""); //holds task description from input
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
+  const handleSubmitGuestUser = () => {
+    let guestTaskList = localStorage.getItem("guestTaskList");
+    if (guestTaskList) {
+      const arr = JSON.parse(guestTaskList);
+      arr.find((t: { id: any }) => t.id == task.id).description = taskData;
+      localStorage.setItem("guestTaskList", JSON.stringify(arr));
+      console.log("handle Submit", arr);
+      console.table(taskData);
+    }
+  };
+
   const handleSubmit = async () => {
-    console.log("handlesubmit task.id, ", task.id);
-    try {
-      const response = await fetch(`${apiBaseUrl}/api/TaskItems/${task.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(taskData),
-      });
-      if (response.ok) {
-        setIsModalVisible(true);
+    if (isUserGuest) {
+      handleSubmitGuestUser();
+    } else {
+      console.log("handlesubmit task.id, ", task.id);
+      try {
+        console.log("TaskData on submit", taskData);
+        const response = await fetch(`${apiBaseUrl}/api/TaskItems/${task.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(taskData),
+        });
+        if (response.ok) {
+          setIsModalVisible(true);
+        }
+      } catch (error) {
+        console.log("Error: Task was not updated.", error);
       }
-    } catch (error) {
-      console.log("Error: Task was not updated.", error);
     }
   };
 
@@ -49,10 +66,7 @@ export default function EditPage() {
                 className="input input-bordered w-full max-w-xs"
                 onChange={e => setTaskData(e.target.value)}
               />
-              <button
-                className="btn btn-primary"
-                onClick={() => handleSubmit()}
-              >
+              <button className="btn btn-primary" onClick={handleSubmit}>
                 Edit
               </button>
               <button
