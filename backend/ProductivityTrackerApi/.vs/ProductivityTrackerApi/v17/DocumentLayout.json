@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\controllers\\taskitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\controllers\\taskitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|solutionrelative:productivitytrackerapi\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBFE6897-8964-4ADE-908C-C44FF7E4FBC4}|ProductivityTrackerApi\\ProductivityTrackerApi.csproj|c:\\users\\muj\\desktop\\projects\\productivity-tracker\\backend\\productivitytrackerapi\\productivitytrackerapi\\models\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
@@ -70,7 +70,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ProductivityTrackerContext.cs",
               "DocumentMoniker": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Models\\ProductivityTrackerContext.cs",
               "RelativeDocumentMoniker": "ProductivityTrackerApi\\Models\\ProductivityTrackerContext.cs",
@@ -78,8 +78,7 @@
               "RelativeToolTip": "ProductivityTrackerApi\\Models\\ProductivityTrackerContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T01:34:02.88Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-05T01:34:02.88Z"
             },
             {
               "$type": "Document",
@@ -95,13 +94,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "TaskItemsController.cs",
               "DocumentMoniker": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Controllers\\TaskItemsController.cs",
               "RelativeDocumentMoniker": "ProductivityTrackerApi\\Controllers\\TaskItemsController.cs",
               "ToolTip": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Controllers\\TaskItemsController.cs",
               "RelativeToolTip": "ProductivityTrackerApi\\Controllers\\TaskItemsController.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAwwEUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-04T07:41:03.251Z",
               "EditorCaption": ""
@@ -120,19 +119,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "ProductivityTrackerApi\\Controllers\\LoginController.cs",
               "ToolTip": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Controllers\\LoginController.cs",
               "RelativeToolTip": "ProductivityTrackerApi\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwA4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCwAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T00:14:27.391Z"
+              "WhenOpened": "2024-11-04T00:14:27.391Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\muj\\Desktop\\projects\\productivity-tracker\\backend\\ProductivityTrackerApi\\ProductivityTrackerApi\\Program.cs",
               "RelativeDocumentMoniker": "ProductivityTrackerApi\\Program.cs",
@@ -140,8 +140,7 @@
               "RelativeToolTip": "ProductivityTrackerApi\\Program.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAAACUAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T13:58:19.001Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T13:58:19.001Z"
             }
           ]
         }

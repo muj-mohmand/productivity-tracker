@@ -8,6 +8,7 @@ import {
 } from "../../lib/features/user/userSlice";
 import EditPage from "../task/edit_task/page";
 import { setStateTask } from "@/lib/features/task/taskSlice";
+import { isCompositeComponent } from "react-dom/test-utils";
 
 interface UserInfo {
   name: string | null;
@@ -114,20 +115,29 @@ export default function TasksPage() {
         </tbody>
       );
     }
+    const handleDeleteTaskGuest = (id: number | any) => {
+      const newlist = taskItems.filter(t => t.id !== id);
+      localStorage.setItem("guestTaskList", JSON.stringify(newlist));
+      setTaskItems(newlist);
+    };
 
     async function handleDeleteTask(id: number | null) {
-      try {
-        if (id) {
-          const response = await fetch(`${apiBaseUrl}/api/TaskItems/${id}`, {
-            method: "DELETE",
-          });
-          if (response.ok) {
-            const updatedTasksList = taskItems.filter(task => task.id != id);
-            setTaskItems(updatedTasksList);
+      if (user.isGuest) {
+        handleDeleteTaskGuest(id);
+      } else {
+        try {
+          if (id) {
+            const response = await fetch(`${apiBaseUrl}/api/TaskItems/${id}`, {
+              method: "DELETE",
+            });
+            if (response.ok) {
+              const updatedTasksList = taskItems.filter(task => task.id !== id);
+              setTaskItems(updatedTasksList);
+            }
           }
+        } catch (error) {
+          console.log("Error occured, task not deleted: ", error);
         }
-      } catch (error) {
-        console.log("Error occured, task not deleted: ", error);
       }
     }
 
@@ -135,10 +145,18 @@ export default function TasksPage() {
       dispatch(setStateTask(task));
       router.push("/task/edit_task");
     }
+    const handleCompletedGuest = (task: Task) => {
+      const updatedTasksList = taskItems.map(t =>
+        t.id === task.id ? { ...t, isComplete: true } : t
+      );
+      console.table(updatedTasksList);
+      localStorage.setItem("guestTaskList", JSON.stringify(updatedTasksList));
+      setTaskItems(updatedTasksList);
+    };
 
     const handleCompleted = async (task: Task) => {
       if (user.isGuest) {
-        //guest logic
+        handleCompletedGuest(task);
       } else {
         task.isComplete = true;
         const response = await fetch(
@@ -152,6 +170,10 @@ export default function TasksPage() {
         );
 
         if (response.ok) {
+          let updatedTaskList = taskItems.map(t =>
+            t.id == task.id ? { ...task, isComplete: true } : t
+          );
+          setTaskItems(updatedTaskList);
         }
       }
     };
@@ -165,6 +187,7 @@ export default function TasksPage() {
               </label>
             </th>
             <td>
+              {console.table(taskItems)}
               {task.description}
               <br />
               <span
@@ -178,18 +201,18 @@ export default function TasksPage() {
               </span>
             </td>
             <td>
-              <button className="btn m-2" onClick={() => handleEditTask(task)}>
+              <button className="btn m-1" onClick={() => handleEditTask(task)}>
                 Edit
               </button>
               <button
-                className="btn btn-error"
+                className="btn btn-error m-1"
                 onClick={() => handleDeleteTask(task.id)}
               >
                 Delete
               </button>
               <button
                 onClick={() => handleCompleted(task)}
-                className="btn btn-success"
+                className="btn btn-success m-1"
               >
                 Completed
               </button>

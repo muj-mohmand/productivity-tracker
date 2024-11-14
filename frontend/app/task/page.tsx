@@ -31,7 +31,11 @@ export default function AddTaskPage() {
           localStorage.setItem("guestTaskList", JSON.stringify([taskObject]));
         } else {
           let list = JSON.parse(guestTaskList);
-          taskObject.id = list.length;
+          let max = -1;
+          list.forEach((task: { id: number }) => {
+            max = Math.max(task.id, max);
+          });
+          taskObject.id = max + 1;
           list.push(taskObject);
           localStorage.setItem("guestTaskList", JSON.stringify(list));
         }
