@@ -30,13 +30,11 @@ export default function TasksPage() {
   const dispatch = useAppDispatch();
   const user = useAppSelector(state => state.user);
   const [taskItems, setTaskItems] = useState<any[]>([]);
-  console.log(`The user state info is : `, user);
 
   // Use HTTP for local development to avoid certificate issues
   const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5169";
 
   async function fetchUserData() {
-    console.log("fetchUserData called");
     try {
       const response = await fetch(`${apiBaseUrl}/auth/user`, {
         method: "GET",
@@ -46,14 +44,11 @@ export default function TasksPage() {
 
       const data = await response.json();
 
-      console.log("Auth response status:", data);
-
       // //set user data in store
       if (response.ok) {
         dispatch(setStateUserInfo(data));
         setUserInfo(data);
-        console.log("response data", data);
-        console.log("response userInfo", userInfo);
+
         getTasks(data);
       }
 
@@ -67,7 +62,6 @@ export default function TasksPage() {
     }
   }
   const getTasks = async (user: UserInfo | null) => {
-    console.log("Get tasks", user);
     if (user?.email) {
       const params = new URLSearchParams({ email: user.email });
       const response = await fetch(`${apiBaseUrl}/api/TaskItems?${params}`, {
@@ -81,19 +75,16 @@ export default function TasksPage() {
     }
   };
   useEffect(() => {
-    console.log("start use effect");
     console.log(user);
+
     if (!user.userInfo || !user.isGuest) {
-      console.log("fetching user info");
       fetchUserData();
     } else {
       setUserInfo(user.userInfo);
       if (typeof window !== "undefined" && localStorage) {
         const guestTaskList = localStorage.getItem("guestTaskList");
-        console.log("GuestTaskList? ", guestTaskList);
 
         if (guestTaskList) {
-          console.log("JSON parse", JSON.parse(guestTaskList));
           setTaskItems(JSON.parse(guestTaskList));
         }
       }

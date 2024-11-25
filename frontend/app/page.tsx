@@ -26,7 +26,7 @@ export default function Home() {
   };
 
   const handleSignInAsGuest = () => {
-    console.log("handleSignInAsGuest called");
+    ("handleSignInAsGuest called");
     try {
       if (user.loggedIn) {
         //logout current user
@@ -36,7 +36,6 @@ export default function Home() {
           });
           const data = await response.json();
 
-          console.log(`logoutoutResponse`, data);
           if (response.ok) {
             console.log("Logged out succesfully.");
           }
@@ -46,8 +45,6 @@ export default function Home() {
       dispatch(clearUserInfo()); // clears info and logs out user
       dispatch(setStateUserInfo({ name: "guest", email: "guest" }));
       dispatch(setIsGuest(true));
-      console.log("sign in a guest");
-      console.log("user", user);
 
       router.push("/tasks");
     } catch (error) {
@@ -57,8 +54,8 @@ export default function Home() {
   };
 
   return (
-    <div data-theme="cupcake">
-      <div className="container mx-auto m-60">
+    <div data-theme="cupcake flex items-center justify-center">
+      <div className="container mx-auto  flex items-center ">
         <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl place-content-center ">
           <div className="md:flex">
             <div className="md:shrink-0">

@@ -17,8 +17,8 @@ public class AuthController : ControllerBase
         }, GoogleDefaults.AuthenticationScheme);
     }
 
-    [HttpGet("user")]
     [Authorize]
+    [HttpGet("user")]
     public async Task<IActionResult> GetUserAsync()
     {
             var result = await HttpContext.AuthenticateAsync(GoogleDefaults.AuthenticationScheme);
@@ -42,6 +42,7 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Logout()
     {
         await HttpContext.SignOutAsync();
+        Response.Cookies.Delete(".AspNetCore.Cookies");
         return Ok();
     }
 }

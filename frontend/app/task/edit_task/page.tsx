@@ -18,7 +18,7 @@ export default function EditPage() {
       const arr = JSON.parse(guestTaskList);
       arr.find((t: { id: any }) => t.id == task.id).description = taskData;
       localStorage.setItem("guestTaskList", JSON.stringify(arr));
-      console.log("handle Submit", arr);
+      setIsModalVisible(!isModalVisible);
       console.table(taskData);
     }
   };
@@ -27,9 +27,7 @@ export default function EditPage() {
     if (isUserGuest) {
       handleSubmitGuestUser();
     } else {
-      console.log("handlesubmit task.id, ", task.id);
       try {
-        console.log("TaskData on submit", taskData);
         const response = await fetch(`${apiBaseUrl}/api/TaskItems/${task.id}`, {
           method: "PUT",
           headers: {

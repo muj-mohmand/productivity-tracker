@@ -11,9 +11,12 @@ export default function AddTaskPage() {
   const [countOfEntries, setCountOfEntries] = useState(0);
   const currentUserId = useAppSelector(state => state.user.userInfo.email);
   const isUserGuest = useAppSelector(state => state.user.isGuest);
-  let guestTaskList = localStorage.getItem("guestTaskList");
-  console.log(currentUserId);
   const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5169";
+
+  let guestTaskList: any = null;
+  if (typeof window !== "undefined" && localStorage) {
+    guestTaskList = localStorage.getItem("guestTaskList");
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,7 +67,6 @@ export default function AddTaskPage() {
 
         if (response.ok) {
           const result = await response.json();
-          console.log("Success:", result); // Log the full success response
           setTaskData("");
           setCountOfEntries(countOfEntries + 1);
           setIsModalVisible(true);
