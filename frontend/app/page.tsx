@@ -79,10 +79,8 @@ export default function Home() {
               </a>
               <p className="mt-2 text-slate-500">
                 This web app will allow you to keep track of yours tasks. Add
-                tasks and complete tasks. The app has a built in timer with
-                based on set intervals to help you focus. You can set the time
-                interval as you like, we recommend 25 minutes based on the
-                pomodoro method.
+                tasks, delete and complete tasks. You can use your gmail account
+                or use sign in as guest to try it out.
               </p>
             </div>
           </div>
