@@ -39,7 +39,7 @@ export default function TasksPage() {
       const response = await fetch(`${apiBaseUrl}/auth/user`, {
         method: "GET",
         credentials: "include",
-        mode: "cors",
+        mode: "no-cors",
       });
 
       const data = await response.json();
