@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProductivityTrackerApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba4920ec60bcc40fca6fafbcb3326f25c9e255d5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c67ae2dfe2e509c5729ee76160162510f0ae398")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProductivityTrackerApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProductivityTrackerApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

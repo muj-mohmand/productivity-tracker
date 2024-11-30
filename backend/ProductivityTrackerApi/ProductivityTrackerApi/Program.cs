@@ -17,7 +17,11 @@ services.AddAuthentication(options =>
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
 })
-.AddCookie()
+.AddCookie(options =>
+{
+    options.Cookie.SameSite = SameSiteMode.None;  // Allow cookies in cross-origin requests
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;  // Ensure cookies are sent only over HTTPS
+})
 .AddGoogle(GoogleDefaults.AuthenticationScheme, options =>
 {
     options.ClientId = configuration["Authentication:Google:ClientId"];
@@ -32,10 +36,13 @@ services.AddAuthentication(options =>
 services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("http://localhost:3000")
-                          .AllowAnyHeader()
-                          .AllowAnyMethod()
-                          .AllowCredentials());
+            builder =>
+            {
+                builder.WithOrigins("https://productivity-tracker-livid.vercel.app")  // Your frontend URL
+                       .AllowAnyHeader()
+                       .AllowAnyMethod()
+                       .AllowCredentials();
+            });
 });
 
 
@@ -48,6 +55,17 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.Use(async (context, next) =>
+{
+    context.Response.OnStarting(() =>
+    {
+        // Add the CORS headers explicitly if not set
+        context.Response.Headers["Access-Control-Allow-Credentials"] = "true";
+        return Task.CompletedTask;
+    });
+
+    await next();
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

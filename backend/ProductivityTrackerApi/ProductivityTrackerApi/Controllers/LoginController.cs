@@ -13,8 +13,15 @@ public class AuthController : ControllerBase
     {
         return Challenge(new AuthenticationProperties
         {
-            RedirectUri = "http://localhost:3000/tasks"
+            RedirectUri = "auth/callback"
         }, GoogleDefaults.AuthenticationScheme);
+    }
+
+    [HttpGet("callback")]
+    public IActionResult Callback()
+    {
+        // After successful authentication, redirect to the tasks page
+        return Redirect("https://productivity-tracker-livid.vercel.app/tasks");
     }
 
     [Authorize]
